@@ -4,7 +4,7 @@ if __name__ == '__main__':
     moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
     moscowpython.print_info()
 
-    """
+    """channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
 {
   "kind": "youtube#channelListResponse",
   "etag": "uAdmwT0aDhY9LmAzJzIafD6ATRw",
@@ -15,7 +15,7 @@ if __name__ == '__main__':
   "items": [
     {
       "kind": "youtube#channel",
-      "etag": "cPh7A8SKcZxxs_UPCiBaXP1wNDk",
+      "etag": "cPh7A8SKcZjson.dumps(channel, indent=2, ensure_ascii=False)xxs_UPCiBaXP1wNDk",
       "id": "UC-OVMPlMA3-YCIeg4z5z23A",
       "snippet": {
         "title": "MoscowPython",
