@@ -98,6 +98,6 @@ class Channel:
             'video_count': self.video_count
         })
         with open(file_to_save, 'w') as outfile:
-            json.dump(data, outfile)
+            json.dump(data, outfile, ensure_ascii=False, indent=2)
 
         return os.path.abspath(file_to_save)
