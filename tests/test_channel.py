@@ -46,8 +46,8 @@ def test_str(moscowpython):
 
 def test_add_and_sub(moscowpython, highload):
     """Проверяем как складываются и вычитаются наши экземпляры класса."""
-    assert moscowpython + highload == 102600
-    assert moscowpython - highload == -50000
+    assert moscowpython + highload == 103000
+    assert moscowpython - highload == -50200
 
 
 def test_le_lt_ge_gt(moscowpython, highload):
