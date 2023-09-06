@@ -1,7 +1,7 @@
-from src.channel import Channel
+from src.channel import YouTubeMixin
 
 
-class Video(Channel):
+class Video(YouTubeMixin):
     """Класс для видео из YouTube."""
 
     def __init__(self, id_video: str):
