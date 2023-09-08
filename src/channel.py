@@ -8,6 +8,11 @@ class YouTubeMixin:
     api_key: str = os.environ.get('API_KEY_Y')
     youtube = build('youtube', 'v3', developerKey="AIzaSyDtqM8u8P5KZGagcXMXtYLb9WUtuF-z9-I")
 
+    @classmethod
+    def get_service(cls):
+        """Возвращает объект для работы с YouTube API."""
+        return cls.youtube
+
 
 class Channel(YouTubeMixin):
     """Класс для ютуб-канала"""
@@ -15,11 +20,11 @@ class Channel(YouTubeMixin):
     def __init__(self, channel_id: str):
         """Экземпляр инициализируется id канала. Дальше все данные будут подтягиваться по API."""
         self.__channel_id = channel_id
-        self.channel = self.youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()
+        self.channel = self.get_service().channels().list(id=self.__channel_id, part='snippet,statistics').execute()
         channel_info = json.dumps(self.channel, indent=2, ensure_ascii=False)
         channel_info_dict = json.loads(channel_info)
         self.title = channel_info_dict['items'][0]['snippet']['title']
-        self.description = channel_info_dict['items'][0]['snippet']['description']
+        self.description = channel_info_dict['items'][0 ]['snippet']['description']
         self.url = f"https://www.youtube.com/channel/{channel_id}"
         self.view_count = int(channel_info_dict['items'][0]['statistics']['viewCount'])
         self.subscriber_count = int(channel_info_dict['items'][0]['statistics']['subscriberCount'])
