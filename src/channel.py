@@ -87,7 +87,7 @@ class Channel(YouTubeMixin):
         return cls.youtube
 
     def print_info(self):
-        """Выводит в консоль строку  с информацией о канале."""
+        """Выводит в консоль строку с информацией о канале."""
         channel = self.youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()
         channel_info = json.dumps(channel, indent=2, ensure_ascii=False)
         print(channel_info)

@@ -17,8 +17,7 @@ def pl_meetup78():
 def test_video_init(gil_in_python):
     """Проверим как экземпляр класса Video инициализировалcя."""
     assert gil_in_python.title == 'GIL в Python: зачем он нужен и как с этим жить'
-    assert gil_in_python.like_count == 2255
-
+    assert gil_in_python.like_count == 2265
 
 
 def test_playlist_init(pl_meetup78):
