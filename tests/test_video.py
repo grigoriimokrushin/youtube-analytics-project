@@ -9,15 +9,23 @@ def gil_in_python():
 
 
 @pytest.fixture
+def broken_video():
+    """Создадим фикстуhe c экземпляром класса Video c несуществующим id."""
+    return Video('...')
+
+
+@pytest.fixture
 def pl_meetup78():
     """Создадим фикстуру c экземпляром класса PLVideo."""
     return PLVideo('4fObz_qw9u4', 'PLv_zOGKKxVph_8g2Mqc3LMhj0M_BfasbC')
 
 
-def test_video_init(gil_in_python):
+def test_video_init(gil_in_python, broken_video):
     """Проверим как экземпляр класса Video инициализировалcя."""
     assert gil_in_python.title == 'GIL в Python: зачем он нужен и как с этим жить'
     assert gil_in_python.like_count == 2265
+    assert broken_video.title is None
+    assert broken_video.url is None
 
 
 def test_playlist_init(pl_meetup78):
