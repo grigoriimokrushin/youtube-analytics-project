@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 class YouTubeMixin:
     """Класс с объектом для работы с YouTube."""
     api_key: str = os.environ.get('API_KEY_Y')
-    youtube = build('youtube', 'v3', developerKey="AIzaSyDtqM8u8P5KZGagcXMXtYLb9WUtuF-z9-I")
+    youtube = build('youtube', 'v3', developerKey=api_key)
 
     @classmethod
     def get_service(cls):
